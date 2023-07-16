@@ -46,11 +46,11 @@ const BestSeller = () => {
 
   return (
     <div>
-      <div className="flex text-[20px] ml-[-32px]">
+      <div className='flex text-[20px] ml-[-32px]'>
         {tabs.map((el) => (
           <span
             key={el.id}
-            className={`font-semibold capitalize px-8 border-r cursor-pointer text-gray-400 ${
+            className={`font-semibold uppercase px-8 border-r cursor-pointer text-gray-400 ${
               activedTab === el.id ? 'text-slate-950' : ''
             }`}
             onClick={() => setActivedTab(el.id)}
@@ -59,23 +59,23 @@ const BestSeller = () => {
           </span>
         ))}
       </div>
-      <div className="mt-4 mx-[-10px] border-t-2 border-main pt-4">
+      <div className='mt-4 mx-[-10px] border-t-2 border-main pt-4'>
         <Slider {...settings}>
           {products?.map((el) => (
             <Product key={el._id} productData={el} />
           ))}
         </Slider>
       </div>
-      <div className="flex w-full gap-4 mt-4">
+      <div className='flex w-full gap-4 mt-4'>
         <img
-          src="https://digital-world-2.myshopify.com/cdn/shop/files/banner2-home2_2000x_crop_center.png?v=1613166657"
-          alt="banner"
-          className="flex-1 object-contain"
+          src='https://digital-world-2.myshopify.com/cdn/shop/files/banner2-home2_2000x_crop_center.png?v=1613166657'
+          alt='banner'
+          className='flex-1 object-contain'
         />
         <img
-          src="https://digital-world-2.myshopify.com/cdn/shop/files/banner1-home2_2000x_crop_center.png?v=1613166657"
-          alt="banner"
-          className="flex-1 object-contain"
+          src='https://digital-world-2.myshopify.com/cdn/shop/files/banner1-home2_2000x_crop_center.png?v=1613166657'
+          alt='banner'
+          className='flex-1 object-contain'
         />
       </div>
     </div>

@@ -6,3 +6,5 @@ export { default as Product } from './Product';
 export { default as SelectOption } from './SelectOption';
 export { default as DealDaily } from './DealDaily';
 export { default as Countdown } from './Countdown';
+export { default as FetureProduct } from './FetureProduct';
+export { default as ProductCard } from './ProductCard';

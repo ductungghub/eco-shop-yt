@@ -1,2 +1,0 @@
-# eco-shop-yt
-xdahrsdjdfhntelc
