@@ -26,7 +26,7 @@ const FetureProduct = () => {
       <div className='flex flex-wrap mx-[-10px] mt-[15px]'>
         {products?.map((el) => (
           <ProductCard
-            key={el.id}
+            key={el._id}
             image={el.thumb}
             title={el.title}
             totalRatings={el.totalRatings}

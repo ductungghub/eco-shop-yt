@@ -1,42 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { apiGetProducts } from '../apis/product';
-import { Product } from './';
-import Slider from 'react-slick';
+import { CustomSlider } from './';
+import { getNewProducts } from '../store/products/asyncAction';
+import { useDispatch, useSelector } from 'react-redux';
 
 const tabs = [
   { id: 1, name: 'best sellers' },
   { id: 2, name: 'new arrivals' },
 ];
 
-const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 3,
-  slidesToScroll: 1,
-};
-
 const BestSeller = () => {
   const [bestSellers, setBestSellers] = useState(null);
-  const [newProducts, setNewProducts] = useState(null);
   const [activedTab, setActivedTab] = useState(1);
   const [products, setProducts] = useState(null);
+  const dispatch = useDispatch();
+  const { newProducts } = useSelector((state) => state.products);
 
   const fetchProducts = async () => {
-    const response = await Promise.all([
-      apiGetProducts({ sort: '-sold' }),
-      apiGetProducts({ sort: '-createdAt' }),
-    ]);
-    if (response[0]?.success) {
-      setBestSellers(response[0].productDatas);
-      setProducts(response[0].productDatas);
+    const response = await apiGetProducts({ sort: '-sold' });
+    if (response.success) {
+      setBestSellers(response.productDatas);
+      setProducts(response.productDatas);
     }
-    if (response[1]?.success) setNewProducts(response[1].productDatas);
-    setProducts(response[0].productDatas);
   };
 
   useEffect(() => {
     fetchProducts();
+    dispatch(getNewProducts());
   }, []);
 
   useEffect(() => {
@@ -60,11 +50,7 @@ const BestSeller = () => {
         ))}
       </div>
       <div className='mt-4 mx-[-10px] border-t-2 border-main pt-4'>
-        <Slider {...settings}>
-          {products?.map((el) => (
-            <Product key={el._id} productData={el} />
-          ))}
-        </Slider>
+        <CustomSlider products={products} activedTab={activedTab} />
       </div>
       <div className='flex w-full gap-4 mt-4'>
         <img

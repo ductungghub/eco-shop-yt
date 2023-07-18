@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 // Declare the Schema of the Mongo model
 const productCategorySchema = new mongoose.Schema(
@@ -13,9 +13,13 @@ const productCategorySchema = new mongoose.Schema(
       type: Array,
       required: true,
     },
+    image: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
 //Export the model
-module.exports = mongoose.model("ProductCategory", productCategorySchema);
+module.exports = mongoose.model('ProductCategory', productCategorySchema);

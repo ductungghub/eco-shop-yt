@@ -10,6 +10,7 @@ import {
   AiFillHeart,
 } from 'react-icons/ai';
 import { IoMdMenu } from 'react-icons/io';
+import { MdArrowForwardIos } from 'react-icons/md';
 
 const icons = {
   FaPhone,
@@ -22,6 +23,7 @@ const icons = {
   AiFillEye,
   IoMdMenu,
   AiFillHeart,
+  MdArrowForwardIos,
 };
 
 export default icons;

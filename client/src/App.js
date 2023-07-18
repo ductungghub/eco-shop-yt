@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Login, Home, Public } from './pages/public';
 import path from './utils/path';
 import { useDispatch } from 'react-redux';
-import { getCategories } from './store/asyncAction';
+import { getCategories } from './store/app/asyncAction';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function App() {
     dispatch(getCategories());
   }, []);
   return (
-    <div className="min-h-screen font-main">
+    <div className='min-h-screen font-main'>
       <Routes>
         <Route path={path.PUBLIC} element={<Public />}>
           <Route path={path.HOME} element={<Home />} />

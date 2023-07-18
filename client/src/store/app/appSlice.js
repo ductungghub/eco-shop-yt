@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import * as actions from './asyncAction';
+import { getCategories } from './asyncAction';
 
 export const appSlice = createSlice({
   name: 'app',
@@ -7,21 +7,22 @@ export const appSlice = createSlice({
   initialState: {
     categories: null,
     isLoading: false,
+    errorMessage: '',
   },
 
   reducers: {},
 
   extraReducers: (builder) => {
-    builder.addCase(actions.getCategories.pending, (state) => {
+    builder.addCase(getCategories.pending, (state) => {
       state.isLoading = true;
     });
 
-    builder.addCase(actions.getCategories.fulfilled, (state, action) => {
+    builder.addCase(getCategories.fulfilled, (state, action) => {
       state.isLoading = false;
       state.categories = action.payload;
     });
 
-    builder.addCase(actions.getCategories.rejected, (state, action) => {
+    builder.addCase(getCategories.rejected, (state, action) => {
       state.isLoading = false;
       state.errorMessage = action.payload.message;
     });
