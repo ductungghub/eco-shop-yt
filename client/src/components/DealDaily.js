@@ -69,42 +69,46 @@ const DealDaily = () => {
   }, [second, minute, expriedTime, hour]);
 
   return (
-    <div className="border w-full flex-auto">
-      <div className="flex items-center justify-between p-4 w-full">
-        <span className="flex-1 flex justify-center">
-          <AiFillStar size={20} color="#DD1111" />
+    <div className='border w-full flex-auto'>
+      <div className='flex items-center justify-between p-4 w-full'>
+        <span className='flex-1 flex justify-center'>
+          <AiFillStar size={20} color='#DD1111' />
         </span>
-        <span className="flex-8 text-[20px] font-semibold flex justify-center text-gray-700">
+        <span className='flex-8 text-[20px] font-semibold flex justify-center text-gray-700'>
           DAILY DEALS
         </span>
-        <span className="flex-1"></span>
+        <span className='flex-1'></span>
       </div>
 
-      <div className="w-full flex flex-col items-center pt-8 px-4 gap-2">
+      <div className='w-full flex flex-col items-center pt-8 px-4 gap-2'>
         <img
           src={
             dealDaily?.thumb ||
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvG5Q9vSnhWiURKz5BlQpc6r1nsWJA_L6duJrGCkIjF1Vyfs1TDoxAnCOBHb7E2jzLVuA&usqp=CAU'
           }
-          alt="Product img"
-          className="w-full object-contain"
+          alt='Product img'
+          className='w-full object-contain'
         />
-        <span className="line-clamp-1 text-center">{dealDaily?.title}</span>
-        <span className="flex">
-          {renderStarFromNumber(dealDaily?.totalRatings, 20)}
+        <span className='line-clamp-1 text-center'>{dealDaily?.title}</span>
+        <span className='flex'>
+          {renderStarFromNumber(dealDaily?.totalRatings, 20)?.map(
+            (el, index) => (
+              <span key={index}>{el}</span>
+            )
+          )}
         </span>
         <span>{`${formatMoney(dealDaily?.price)} VNĐ `}</span>
       </div>
 
-      <div className="px-4 mt-8">
-        <div className="flex justify-center items-center gap-2 mb-4">
+      <div className='px-4 mt-8'>
+        <div className='flex justify-center items-center gap-2 mb-4'>
           <Countdown unit={'Hours'} number={hour} />
           <Countdown unit={'Minutes'} number={minute} />
           <Countdown unit={'Seconds'} number={second} />
         </div>
         <button
-          type="button"
-          className="flex gap-2 items-center justify-center w-full bg-main hover:bg-gray-800 text-white font-medium"
+          type='button'
+          className='flex gap-2 items-center justify-center w-full bg-main hover:bg-gray-800 text-white font-medium'
         >
           <IoMdMenu />
           <span>Options</span>

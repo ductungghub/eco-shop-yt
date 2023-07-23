@@ -3,6 +3,8 @@ import { formatMoney, renderStarFromNumber } from '../utils/helper';
 import label from '../assets/label.png';
 import { SelectOption } from './';
 import icons from '../utils/icons';
+import { Link } from 'react-router-dom';
+import path from '../utils/path';
 
 const { AiFillEye, IoMdMenu, AiFillHeart } = icons;
 
@@ -10,8 +12,9 @@ const Product = ({ productData }) => {
   const [isShowOption, setIsShowOption] = useState(false);
   return (
     <div className='w-full text-base px-[10px]'>
-      <div
+      <Link
         className='w-full border px-[15px] flex flex-col items-center'
+        to={`/${path.DETAIL_PRODUCT}/${productData?._id}/${productData?.title}`}
         onMouseEnter={(e) => {
           e.stopPropagation();
           setIsShowOption(true);
@@ -57,7 +60,7 @@ const Product = ({ productData }) => {
           </span>
           <span>{`${formatMoney(productData?.price)} VNĐ `}</span>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };

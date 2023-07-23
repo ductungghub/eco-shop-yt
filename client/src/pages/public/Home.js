@@ -7,6 +7,7 @@ import {
   DealDaily,
   FetureProduct,
   CustomSlider,
+  Footer,
 } from '../../components';
 import { useSelector } from 'react-redux';
 import icons from '../../utils/icons';
@@ -23,7 +24,7 @@ const Home = () => {
         <div className='w-main flex'>
           <div className='flex flex-col  gap-5 w-[25%] flex-auto'>
             <Slidebar />
-            {/* <DealDaily /> */}
+            <DealDaily />
           </div>
           <div className='flex flex-col  gap-5 pl-5 w-[75%] flex-auto'>
             <Banner />
@@ -64,9 +65,9 @@ const Home = () => {
                       <h4 className='font-semibold uppercase'>{el.title}</h4>
                       <ul className='text-sm text-gray-500'>
                         {el?.brand?.map((item) => (
-                          <span className='flex gap-1 items-center'>
+                          <span key={item} className='flex gap-1 items-center'>
                             <MdArrowForwardIos size={14} />
-                            <li key={item}>{item}</li>
+                            <li>{item}</li>
                           </span>
                         ))}
                       </ul>
@@ -82,7 +83,6 @@ const Home = () => {
             BLOG POSTS
           </h3>
         </div>
-        <div className='w-full h-[500px] bg-slate-300'>FOOTER</div>
       </div>
     </>
   );
