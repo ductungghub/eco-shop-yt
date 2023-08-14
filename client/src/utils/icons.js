@@ -8,6 +8,7 @@ import {
   AiFillStar,
   AiFillEye,
   AiFillHeart,
+  AiOutlineLogout,
 } from 'react-icons/ai';
 import { IoMdMenu } from 'react-icons/io';
 import { MdArrowForwardIos } from 'react-icons/md';
@@ -24,6 +25,7 @@ const icons = {
   IoMdMenu,
   AiFillHeart,
   MdArrowForwardIos,
+  AiOutlineLogout,
 };
 
 export default icons;

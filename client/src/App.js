@@ -9,10 +9,14 @@ import {
   Blogs,
   FAQ,
   Products,
+  FinalRegister,
+  ResetPassword,
 } from './pages/public';
 import path from './utils/path';
 import { useDispatch } from 'react-redux';
 import { getCategories } from './store/app/asyncAction';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,9 +37,24 @@ function App() {
           <Route path={path.FAQs} element={<FAQ />} />
           <Route path={path.OUR_SERVICES} element={<Services />} />
           <Route path={path.PRODUCTS} element={<Products />} />
+          <Route path={path.RESET_PASSWORD} element={<ResetPassword />} />
         </Route>
+        <Route path={path.FINAL_REGISTER} element={<FinalRegister />} />
         <Route path={path.LOGIN} element={<Login />} />
       </Routes>
+      <ToastContainer
+        position='top-right'
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='colored'
+      />
+      <ToastContainer />
     </div>
   );
 }

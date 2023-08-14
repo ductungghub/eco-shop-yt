@@ -42,9 +42,7 @@ const Footer = () => {
             </span>
             <span>
               <span>Phone: </span>
-              <span className='ggggggggggggggggggggggggggggggggggggggggggggggggfffffffffffffffffffffffffffggggggggggggggggggopacity-70'>
-                (+1234)56789xxx
-              </span>
+              <span className='opacity-70'>(+1234)56789xxx</span>
             </span>
             <span>
               <span>Mail: </span>
